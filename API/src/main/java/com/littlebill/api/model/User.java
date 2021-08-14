@@ -1,9 +1,8 @@
-package com.littlebill.webapp.model;
+package com.littlebill.api.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Getter;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "USER")
@@ -16,15 +15,25 @@ public class User {
     private String firstName;
     private String password;
 
-    public User(String pseudo, String lastName, String firstName, String password) {
-        this.pseudo = pseudo;
+    public User(Long id, String lastName, String firstName, String pseudo, String password) {
         this.lastName = lastName;
         this.firstName = firstName;
+        this.pseudo = pseudo;
         this.password = password;
     }
 
     public User() {
 
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", pseudo='" + pseudo + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 
     public String getPseudo() {
@@ -57,15 +66,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "pseudo='" + pseudo + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", password='" + password + '\'' +
-                '}';
     }
 }
