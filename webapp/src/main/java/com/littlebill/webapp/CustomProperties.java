@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix="com.littlebill.webapp")
 public class CustomProperties {
 
-	private String apiUrl;
+	private String geodbUrl;
 	private String apiCatFact;
 	
 }

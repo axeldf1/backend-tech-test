@@ -17,7 +17,7 @@ public class UserRepository {
     private CustomProperties _properties;
 
     public User GetUserAuth(){
-        String baseUrl = _properties.getApiUrl();
+        String baseUrl = "";
         String endPoint = "";
         String completeUrl = baseUrl + endPoint;
 
