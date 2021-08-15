@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>Home page</title>
@@ -59,7 +60,7 @@
             </ul>
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light btn-lg" type="submit">Search</button>
+                <button class="btn btn-outline-light btn-lg" type="submit"> Search </button>
             </form>
         </div>
     </div>
@@ -73,12 +74,6 @@
         <form>
             <input type="text" id="Country_Name" class="" name="country" placeholder="country">
             <input type="text" id="City_Name" class="" name="city" placeholder="city">
-<!--            <select class="form-select" aria-label="Default select example">-->
-<!--                <option selected>Open this select menu</option>-->
-<!--                <option value="1">One</option>-->
-<!--                <option value="2">Two</option>-->
-<!--                <option value="3">Three</option>-->
-<!--            </select>-->
             <input type="submit" class="" value="Search">
         </form>
         <!-- Remind Passowrd -->
