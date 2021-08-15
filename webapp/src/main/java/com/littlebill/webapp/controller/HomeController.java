@@ -27,14 +27,13 @@ public class HomeController {
 
     @GetMapping("/register")
     public String GetRegister(Model model) {
-        model.addAttribute("user", _user);
+        model.addAttribute("user", new User());
         return "register";
     }
 
     @GetMapping("/")
-    public String GetAuth(Model model) {
-        model.addAttribute("user", _user);
-        return "auth";
+    public String GetAuth() {
+        return "redirect:/loginUser";
     }
 
 

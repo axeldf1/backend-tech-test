@@ -11,7 +11,12 @@ public class UserService {
     @Autowired
     private UserRepository _userRepository;
 
-    public User GetUserAuth(){
-        return _userRepository.GetUserAuth();
+    public boolean CheckLogin(String pseudo, String password){
+
+        if(_userRepository.existsById(pseudo)){
+            return _userRepository.findById(pseudo).get().getPassword().equals(password);
+        }
+
+        return false;
     }
 }

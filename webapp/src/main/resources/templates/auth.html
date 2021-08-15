@@ -21,9 +21,9 @@
         </div>
 
         <!-- Login Form -->
-        <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+        <form th:action="@{/loginUser}" th:object="${user}" th:method="post">
+            <input type="text" id="pseudo" class="fadeIn second" name="pseudo" placeholder="pseudo" th:field="*{pseudo}">
+            <input type="password" id="password" class="fadeIn third" name="login" placeholder="password" th:field="*{password}">
             <input type="submit" class="fadeIn fourth" value="Log In">
         </form>
         <form th:action="@{/register}">

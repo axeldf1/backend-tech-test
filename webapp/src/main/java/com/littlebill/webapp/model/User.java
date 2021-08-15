@@ -1,5 +1,7 @@
 package com.littlebill.webapp.model;
 
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,16 +17,26 @@ public class User {
     private String lastName;
     private String firstName;
     private String password;
+    private String mail;
 
-    public User(String pseudo, String lastName, String firstName, String password) {
+    public User(String pseudo, String lastName, String firstName, String password, String mail) {
         this.pseudo = pseudo;
         this.lastName = lastName;
         this.firstName = firstName;
         this.password = password;
+        this.mail = mail;
     }
 
     public User() {
 
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     public String getPseudo() {
@@ -66,6 +78,7 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", password='" + password + '\'' +
+                ", mail='" + mail + '\'' +
                 '}';
     }
 }

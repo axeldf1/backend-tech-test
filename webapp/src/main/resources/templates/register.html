@@ -21,12 +21,12 @@
         </div>
 
         <!-- Login Form -->
-        <form>
-            <input type="text" id="First name" class="fadeIn second" name="First name" placeholder="First name">
-            <input type="text" id="Last name" class="fadeIn third" name="Last name" placeholder="Last name">
-            <input type="text" id="login" class="fadeIn fourth" name="login" placeholder="login">
-            <input type="email" id="email" class="fadeIn fourth" name="email" placeholder="email">
-            <input type="text" id="password" class="fadeIn fifth" name="password" placeholder="password">
+        <form th:action="@{/saveUser}" th:object="${user}" th:method="post">
+            <input type="text" id="First name" class="fadeIn second" name="First name" placeholder="First name" th:field="*{firstName}">
+            <input type="text" id="Last name" class="fadeIn third" name="Last name" placeholder="Last name" th:field="*{lastName}">
+            <input type="text" id="login" class="fadeIn fourth" name="login" placeholder="pseudo" th:field="*{pseudo}">
+            <input type="email" id="email" class="fadeIn fourth" name="email" placeholder="email" th:field="*{mail}">
+            <input type="password" id="password" class="fadeIn fifth" name="password" placeholder="password" th:field="*{password}">
             <input type="submit" class="fadeIn sixth" value="Register">
         </form>
 
