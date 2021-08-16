@@ -11,5 +11,6 @@ public class CustomProperties {
 
 	private String geodbUrl;
 	private String apiCatFact;
-	
+	private String openWeather;
+
 }
