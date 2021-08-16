@@ -28,9 +28,9 @@ public class GeodbService {
 
         for(int i = 0; i < cities.length(); i++) {
             // the JSON data
-            JSONObject jsonPlant = cities.getJSONObject(i);
+            JSONObject jsonCity = cities.getJSONObject(i);
             // Plant object that we will populate from JSON data.
-            String city = jsonPlant.getString("city");
+            String city = jsonCity.getString("city");
 
             allCities.add(city);
         }
@@ -57,5 +57,22 @@ public class GeodbService {
         }
 
         return allCountries;
+    }
+
+    public String GetLucky() throws JSONException {
+        String rawJson =  _geodbRepository.GetLucky();
+
+        JSONObject root = new JSONObject(rawJson);
+
+        JSONArray cities = root.getJSONArray("data");
+
+        String city = "";
+
+        for(int i = 0; i < cities.length(); i++) {
+            JSONObject jsonCity = cities.getJSONObject(i);
+            city = jsonCity.getString("city");
+        }
+
+        return city;
     }
 }
