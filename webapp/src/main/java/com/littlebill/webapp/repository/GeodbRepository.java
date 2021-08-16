@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 @Component
 @Slf4j
 public class GeodbRepository {
@@ -32,6 +34,21 @@ public class GeodbRepository {
 
     public String GetCountriesByPrefix(String prefix, int limit){
         String _baseURL = _properties.getGeodbUrl(), _endPoint = "countries?limit=" + limit + "&offset=0&namePrefix=" + prefix;
+        String _complete = _baseURL + _endPoint;
+
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> response = restTemplate.exchange(
+                _complete,
+                HttpMethod.GET,
+                null,
+                String.class
+        );
+        return response.getBody();
+    }
+
+    public String GetLucky(){
+        int offset = ThreadLocalRandom.current().nextInt(0, 24005 + 1);
+        String _baseURL = _properties.getGeodbUrl(), _endPoint = "cities?limit=1&offset=" + offset;
         String _complete = _baseURL + _endPoint;
 
         RestTemplate restTemplate = new RestTemplate();
